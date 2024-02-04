@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# @pex-craft/state
 
-## Getting Started
 
-First, run the development server:
+[![npm version](https://img.shields.io/npm/v/@pex-craft/state)](https://www.npmjs.com/package/@pex-craft/state)
+[![npm bundle size](https://img.shields.io/bundlephobia/min/@pex-craft/state)](https://bundlephobia.com/package/@pex-craft/state@1.0.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/Sufiyan-Ayoub/state/blob/main/LICENSE)
+
+
+A versatile state management library for React and Next.js.
+
+## Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install @pex-craft/state
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Overview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`@pex-craft/state` provides a set of utilities for state management in your React or Next.  js applications. It includes the following key features:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1.`ContextProvider`: Initialize and manage the application state.
 
-## Learn More
+2.`useStock`: Retrieve specific properties from the state.
 
-To learn more about Next.js, take a look at the following resources:
+3.`usePatchup`: Update the application state.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Usage
+### ContextProvider
+`ContextProvider` is used to initialize the state. It takes an initialState prop, allowing you to pass any type of values.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+All the app content, including children and any other data, is managed within `ContextProvider`.
 
-## Deploy on Vercel
+```tsx
+import { ContextProvider } from "@pex-craft/state";
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+/* `Example usage` */
+<ContextProvider initialState={
+    {
+        app: {
+            debug: true,
+            anyTypeOfKey: 'anyTypeOfValue'// such as Object,Array,number etc.
+        }
+    }
+}>
+  {children}
+</ContextProvider>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+
+### useStock
+
+useStock is a hook used to retrieve a specific property from the state.
+Its give an callback that return the specific property from state according to key.
+
+```tsx
+
+import { useStock } from "@pex-craft/state";
+
+// `Example usage`
+const { debug } = useStock(state =>  state.app);
+
+console.log(debug)
+/* output in console.log */ 
+true // --->debug-->value
+
+```
+
+### usePatchup
+`usePatchup` is a hook used to update the state.
+Its takes key of the state object  to get the value of key that is in the state
+
+```tsx
+
+import { usePatchup } from "@pex-craft/state";
+
+// Example usage
+const patchup = usePatchup(`app`);
+patchup({ app: { debug: false } });
+
+```
