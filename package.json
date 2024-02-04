@@ -1,0 +1,30 @@
+{
+  "name": "@pex-craft/state",
+  "version": "1.1.1",
+  "description": "This package for global state management for React.js & Next.js",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sufiyan-Ayoub/pex-craft-state.git"
+  },
+  "keywords": [
+    "pex-state",
+    "pex",
+    "pex-craft",
+    "state-management",
+    "react",
+    "hooks",
+    "@pex-craft/state",
+    "pex-craft-state",
+    "@pex-craft"
+  ],
+  "author": "Sufiyan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sufiyan-Ayoub/pex-craft-state/issues"
+  },
+  "homepage": "https://github.com/Sufiyan-Ayoub/pex-craft-state#readme"
+}
