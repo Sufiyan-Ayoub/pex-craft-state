@@ -19,23 +19,23 @@ npm install @pex-craft/state
 
 `@pex-craft/state` provides a set of utilities for state management in your React or Next.  js applications. It includes the following key features:
 
-1.`ContextProvider`: Initialize and manage the application state.
+1.`Provider`: Initialize and manage the application state.
 
-2.`useStock`: Retrieve specific properties from the state.
+2.`useStore`: Retrieve specific properties from the state.
 
-3.`usePatchup`: Update the application state.
+3.`useDispatch`: Update the application state.
 
 ## Usage
-### ContextProvider
-`ContextProvider` is used to initialize the state. It takes an initialState prop, allowing you to pass any type of values.
+### Provider
+`Provider` is used to initialize the state. It takes an initialState prop, allowing you to pass any type of values.
 
-All the app content, including children and any other data, is managed within `ContextProvider`.
+All the app content, including children and any other data, is managed within `Provider`.
 
 ```tsx
-import { ContextProvider } from "@pex-craft/state";
+import { Provider } from "@pex-craft/state";
 
 /* `Example usage` */
-<ContextProvider initialState={
+<Provider initialState={
     {
         app: {
             debug: true,
@@ -44,21 +44,21 @@ import { ContextProvider } from "@pex-craft/state";
     }
 }>
   {children}
-</ContextProvider>
+</Provider>
 
 ```
 
-### useStock
+### useStore
 
-useStock is a hook used to retrieve a specific property from the state.
+useStore is a hook used to retrieve a specific property from the state.
 Its give an callback that return the specific property from state according to key.
 
 ```tsx
 
-import { useStock } from "@pex-craft/state";
+import { useStore } from "@pex-craft/state";
 
 // `Example usage`
-const { debug } = useStock(state =>  state.app);
+const { debug } = useStore(state =>  state.app);
 
 console.log(debug)
 /* output in console.log */ 
@@ -66,16 +66,16 @@ true // --->debug-->value
 
 ```
 
-### usePatchup
-`usePatchup` is a hook used to update the state.
+### useDispatch
+`useDispatch` is a hook used to update the state.
 Its takes key of the state object  to get the value of key that is in the state
 
 ```tsx
 
-import { usePatchup } from "@pex-craft/state";
+import { useDispatch } from "@pex-craft/state";
 
 // Example usage
-const patchup = usePatchup(`app`);
-patchup({ app: { debug: false } });
+const dispatch = useDispatch(`app`);
+dispatch({ app: { debug: false } });
 
 ```

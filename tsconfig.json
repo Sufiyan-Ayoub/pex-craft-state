@@ -1,19 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es5",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
     "jsx": "react-jsx",
-    "moduleDetection": "auto",
-    "module": "ESNext",
-    "rootDir": "./src",
-    "moduleResolution": "node10",
-    "outDir": "./dist",
-    "removeComments": true,
-    "importHelpers": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true,
-    "baseUrl": ".src",
+    "esModuleInterop": true,
+    "removeComments": true,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "declaration": true,
+    "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
       "@pex-craft/state": ["node_modules/@pex-craft/state"]
