@@ -21,7 +21,7 @@ npm install @pex-craft/state
 
 1.`Provider`: Initialize and manage the application state.
 
-2.`useStore`: Retrieve specific properties from the state.
+2.`useStock`: Retrieve specific properties from the state.
 
 3.`useDispatch`: Update the application state.
 
@@ -48,17 +48,17 @@ import { Provider } from "@pex-craft/state";
 
 ```
 
-### useStore
+### useStock
 
-useStore is a hook used to retrieve a specific property from the state.
+useStock is a hook used to retrieve a specific property from the state.
 Its give an callback that return the specific property from state according to key.
 
 ```tsx
 
-import { useStore } from "@pex-craft/state";
+import { useStock } from "@pex-craft/state";
 
 // `Example usage`
-const { debug } = useStore(state =>  state.app);
+const { debug } = useStock(state =>  state.app);
 
 console.log(debug)
 /* output in console.log */ 
